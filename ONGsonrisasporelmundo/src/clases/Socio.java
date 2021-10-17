@@ -15,7 +15,7 @@ public class Socio {
 		this.namePartner = namePartner;
 	}
 
-	//Getter y Setter
+	//Getter and Setter
 	public int getIdPartner() {
 		return idPartner;
 	}

@@ -4,8 +4,8 @@ public class Equipo {
 	
 	private int idTeam;
 	private ONG ong;
-	private String teamName;
-	private String memberName;
+	private String nameTeam;
+	private String nameMember;
 	
 	//Constructors
 	public Equipo() {
@@ -14,8 +14,8 @@ public class Equipo {
 	public Equipo(int idTeam, ONG ong, String teamName, String memberName) {
 		this.idTeam = idTeam;
 		this.ong = ong;
-		this.teamName = teamName;
-		this.memberName = memberName;
+		this.nameTeam = teamName;
+		this.nameMember = memberName;
 	}
 
 	@Override
@@ -23,7 +23,7 @@ public class Equipo {
 		return "Equipo [idTeam=" + idTeam + "]";
 	}
 	
-	//Getter y Setter
+	//Getter and Setter
 	public int getIdTeam() {
 		return idTeam;
 	}
@@ -38,16 +38,16 @@ public class Equipo {
 		this.ong = ong;
 	}
 	public String getTeamName() {
-		return teamName;
+		return nameTeam;
 	}
 	public void setTeamName(String teamName) {
-		this.teamName = teamName;
+		this.nameTeam = teamName;
 	}
 	public String getMemberName() {
-		return memberName;
+		return nameMember;
 	}
 	public void setMemberName(String memberName) {
-		this.memberName = memberName;
+		this.nameMember = memberName;
 	}
 	
 }
