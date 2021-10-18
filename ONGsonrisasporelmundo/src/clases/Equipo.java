@@ -2,7 +2,8 @@ package clases;
 
 public class Equipo {
 	
-	private int idTeam;
+	/* he camabiado el tipo de dato de idTeam de int a String me daba error al implementar dao y con String no*/
+	private String idTeam;
 	private ONG ong;
 	private String nameTeam;
 	private String nameMember;
@@ -11,7 +12,7 @@ public class Equipo {
 	public Equipo() {
 	}
 	
-	public Equipo(int idTeam, ONG ong, String teamName, String memberName) {
+	public Equipo(String idTeam, ONG ong, String teamName, String memberName) {
 		this.idTeam = idTeam;
 		this.ong = ong;
 		this.nameTeam = teamName;
@@ -20,15 +21,15 @@ public class Equipo {
 
 	@Override
 	public String toString() {
-		return "Equipo [idTeam=" + idTeam + "]";
+		return "Equipo idTeam: " + idTeam + "";
 	}
 	
 	//Getter and Setter
-	public int getIdTeam() {
+	public String getIdTeam() {
 		return idTeam;
 	}
 
-	public void setIdTeam(int idTeam) {
+	public void setIdTeam(String idTeam) {
 		this.idTeam = idTeam;
 	}
 	public ONG getOng() {
