@@ -2,29 +2,29 @@ package clases;
 
 public class ONG {
 
-	private String idOng;
+	private int idOng;
 	private String nameOng;
 	
 	//Constructors
 	public ONG() {	
 	}
 	
-	public ONG(String idOng, String name) {
+	public ONG(int idOng, String name) {
 		this.idOng = idOng;
 		this.nameOng = name;
 	}
 
 	@Override
 	public String toString() {
-		return "ONG idOng=" + idOng + ", name=" + nameOng + "";
+		return "ONG [idOng=" + idOng + ", name=" + nameOng + "]";
 	}
 	
 	//Getter and Setter
-	public String getIdOng() {
+	public int getIdOng() {
 		return idOng;
 	}
 	
-	public void setIdOng(String idOng) {
+	public void setIdOng(int idOng) {
 		this.idOng = idOng;
 	}
 	
