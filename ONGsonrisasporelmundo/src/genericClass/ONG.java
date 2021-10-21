@@ -1,4 +1,4 @@
-package domainClass;
+package genericClass;
 
 public class ONG {
 

@@ -1,5 +1,7 @@
 package transfersClass;
 
+import genericClass.ONG;
+
 public class DtoEquipo {
 	
 	private String idTeam;

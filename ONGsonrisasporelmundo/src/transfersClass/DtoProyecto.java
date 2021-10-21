@@ -1,5 +1,8 @@
 package transfersClass;
 
+import genericClass.Equipo;
+import genericClass.Socio;
+
 public class DtoProyecto {
 	private String idProject;
 	private Socio socio;
