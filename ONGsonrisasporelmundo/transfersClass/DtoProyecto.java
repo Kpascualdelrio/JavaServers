@@ -1,8 +1,5 @@
 package transfersClass;
 
-import domainClass.Equipo;
-import domainClass.Socio;
-
 public class DtoProyecto {
 	private String idProject;
 	private Socio socio;

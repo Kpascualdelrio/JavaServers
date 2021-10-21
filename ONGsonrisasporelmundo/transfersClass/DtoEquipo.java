@@ -1,7 +1,5 @@
 package transfersClass;
 
-import domainClass.ONG;
-
 public class DtoEquipo {
 	
 	private String idTeam;
