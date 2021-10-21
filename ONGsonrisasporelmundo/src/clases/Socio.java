@@ -5,8 +5,7 @@ public class Socio {
 	private int idPartner;
 	private String namePartner;
 	
-	//Constructors
-	
+
 	public Socio() {
 	}
 
@@ -15,7 +14,6 @@ public class Socio {
 		this.namePartner = namePartner;
 	}
 
-	//Getter and Setter
 	public int getIdPartner() {
 		return idPartner;
 	}
