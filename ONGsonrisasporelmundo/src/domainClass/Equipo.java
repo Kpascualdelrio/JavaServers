@@ -1,4 +1,4 @@
-package clases;
+package domainClass;
 
 public class Equipo {
 	
