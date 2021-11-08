@@ -10,6 +10,7 @@ import com.ClasesConJAXB.Equipos;
 
 
 public interface DaoEquipo{
+	
 	public void guardarEquipos(Equipos equipos) throws JAXBException;
 	public Equipo listarEquipos() throws JAXBException;
 	

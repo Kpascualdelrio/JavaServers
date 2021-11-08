@@ -7,7 +7,9 @@ import java.util.List;
 
 @XmlRootElement(name = "Equipos")
 public class Equipos {
+	
     List<Equipo> equipos;
+    
     public List<Equipo> getEquipos() {
         return equipos;
     }

@@ -11,6 +11,11 @@ public class XmlDAO extends Dao {
 		return new XmlDaoEquipo();
 	}
 	
+	public XmlDaoSocio getDaoSocio() throws JAXBException {
+		// TODO Auto-generated method stub
+		return new XmlDaoSocio();
+	}
+	
 	/*public XmlStandDAO getStandDAO() throws JAXBException {
 		// XmlStandDAO implements IStandDAO
 		return new XmlStandDAO();

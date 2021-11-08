@@ -10,6 +10,8 @@ public abstract class Dao {
 	
 	public abstract XmlDaoEquipo getDaoEquipo() throws JAXBException;
 	
+	public abstract XmlDaoSocio getDaoSocio() throws JAXBException;
+	
 	public static Dao getDAO(int whichFactory) {
 
 		switch (whichFactory) {
