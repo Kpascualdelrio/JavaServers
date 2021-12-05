@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Equipo>
+    <equipos idTeam="EMCM">
+        <ong>
+            <idOng>01</idOng>
+            <nameOng>Sonrisas01</nameOng>
+        </ong>
+        <nameTeam>TeamUSA</nameTeam>
+        <nameMember>teamUSA</nameMember>
+    </equipos>
+    <equipos idTeam="EEHS">
+        <ong>
+            <idOng>01</idOng>
+            <nameOng>Sonrisas01</nameOng>
+        </ong>
+        <nameTeam>TeamEU</nameTeam>
+        <nameMember>teamEU</nameMember>
+    </equipos>
+</Equipo>
