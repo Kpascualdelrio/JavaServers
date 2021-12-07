@@ -53,4 +53,28 @@ public class XmlDaoSocio implements DaoSocio {
 
 	}
 
+	@Override
+	public void Insertar(Socio socio) throws JAXBException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modificar(Object a) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void insertar(Object a) throws Exception, Throwable {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object obtener(Object idPartner) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

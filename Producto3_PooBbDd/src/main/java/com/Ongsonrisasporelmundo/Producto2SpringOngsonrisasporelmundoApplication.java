@@ -9,11 +9,15 @@ import com.ClasesConJAXB.ONG;
 import com.ClasesConJAXB.Proyecto;
 import com.ClasesConJAXB.Socio;
 import com.Dao.Dao;
+import com.Dao.DaoEquipo;
+import com.Dao.DaoProyecto;
+import com.Dao.DaoSocio;
 import com.Dao.XmlDaoEquipo;
 import com.Dao.XmlDaoProyecto;
 import com.Dao.XmlDaoSocio;
 
 import mysql.factory.MysqlSocio;
+import mysql.factory.dao.factory.ConexionBbDd;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -60,11 +64,11 @@ public class Producto2SpringOngsonrisasporelmundoApplication {
 
 		BBVA = new Socio("01", "Kevin", "Pascual");
 		Caixa = new Socio("02", "Marcos", "Pascual");
-		//ING = new Socio("03", "Alejandro", "Salhi");
+		ING = new Socio("03", "Alejandro", "Salhi");
 		Socio socio = new Socio();
 		socio.add(BBVA);
 		socio.add(Caixa);
-		//socio.add(ING);
+		socio.add(ING);
 
 		
 
@@ -93,34 +97,39 @@ public class Producto2SpringOngsonrisasporelmundoApplication {
 		socio = inicializaSocios();
 		proyecto=inicializaProyectos();
 		Connection conn=null;
-		conn =  DriverManager.getConnection("jdbc:mysql://localhost:3306/ONG","root", "hola123");
+		//Instancia a BBDD 
+		ConexionBbDd conexion= new ConexionBbDd();
+		//conn =  DriverManager.getConnection("jdbc:mysql://localhost:3306/ONG","root", "hola123");
+
 		//proyectos
 		Dao displayProject = Dao.getDAO(Dao.XML);
-		XmlDaoProyecto proyectosTest = displayProject.getDaoProyecto();
+		DaoProyecto proyectosTest = displayProject.getDaoProyecto();
 		//proyectosTest.guardarProyecto(proyecto);
 		//proyectosTest.listarProyectos();
 		
 		//equipos
 		Dao displayTeam = Dao.getDAO(Dao.XML);
-		XmlDaoEquipo equiposTest = displayTeam.getDaoEquipo();
+		DaoEquipo equiposTest = displayTeam.getDaoEquipo();
 		//equiposTest.guardarEquipos(equipo);
 		//equiposTest.listarEquipos();
 		
 		//socios
 		Dao displaySocio = Dao.getDAO(Dao.XML);
-		XmlDaoSocio sociosTest = displaySocio.getDaoSocio();
-		sociosTest.guardarSocios(socio);
-		sociosTest.listarSocios();
+		DaoSocio sociosTest = displaySocio.getDaoSocio();
+		//sociosTest.guardarSocios(socio);
+		//sociosTest.listarSocios();
 		
 		
 		//INSTANCIAS DE MYSQL
 		
-		MysqlSocio socioBbdd= new MysqlSocio(conn);
 		
-		//socioBbdd.insertar(socio);
-		/*for(Socio s:socio.getSocios()) {
+		MysqlSocio socioBbdd= new MysqlSocio(conexion.conectarMySQL());
+		//Dao socioBbdd= new Dao();
+		
+		for(Socio s:socio.getSocios()) {
 			socioBbdd.insertar(s);
-		}*/
+			
+		}
 		
 
 	}

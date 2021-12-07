@@ -4,23 +4,24 @@ import javax.xml.bind.JAXBException;
 
 public class XmlDAO extends Dao {
 
-	
-
-	public XmlDaoEquipo getDaoEquipo() throws JAXBException {
+	@Override
+	public DaoEquipo getDaoEquipo() throws JAXBException {
 		// TODO Auto-generated method stub
-		return new XmlDaoEquipo();
-	}
-	
-	public XmlDaoSocio getDaoSocio() throws JAXBException {
-		// TODO Auto-generated method stub
-		return new XmlDaoSocio();
+		return null;
 	}
 
 	@Override
-	public XmlDaoProyecto getDaoProyecto() throws JAXBException {
+	public DaoSocio getDaoSocio() throws JAXBException {
 		// TODO Auto-generated method stub
-		return new XmlDaoProyecto();
+		return null;
 	}
+
+	@Override
+	public DaoProyecto getDaoProyecto() throws JAXBException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	/*public XmlStandDAO getStandDAO() throws JAXBException {
 		// XmlStandDAO implements IStandDAO

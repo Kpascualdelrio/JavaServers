@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import mysql.factory.MysqlSocio;
 
-public class MysqlFactoryMain {
+/*public class MysqlFactoryMain {
 
 	public static void main(String[] args) throws Exception, Throwable {
 		Connection conn=null;
@@ -26,4 +26,4 @@ public class MysqlFactoryMain {
 
 	}
 
-}
+}*/
