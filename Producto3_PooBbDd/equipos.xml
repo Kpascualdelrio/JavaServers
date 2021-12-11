@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Equipo>
-    <equipos idTeam="EMCM">
-        <ong>
-            <idOng>01</idOng>
-            <nameOng>Sonrisas01</nameOng>
-        </ong>
+    <idTeam>0</idTeam>
+    <equipos>
+        <idTeam>1</idTeam>
         <nameTeam>TeamUSA</nameTeam>
-        <nameMember>teamUSA</nameMember>
+        <nameMember>Kevin Pascual</nameMember>
     </equipos>
-    <equipos idTeam="EEHS">
-        <ong>
-            <idOng>01</idOng>
-            <nameOng>Sonrisas01</nameOng>
-        </ong>
+    <equipos>
+        <idTeam>2</idTeam>
         <nameTeam>TeamEU</nameTeam>
-        <nameMember>teamEU</nameMember>
+        <nameMember>Jose</nameMember>
+    </equipos>
+    <equipos>
+        <idTeam>3</idTeam>
+        <nameTeam>TeamUK</nameTeam>
+        <nameMember>Mati</nameMember>
+    </equipos>
+    <equipos>
+        <idTeam>4</idTeam>
+        <nameTeam>TeamES</nameTeam>
+        <nameMember>Adri</nameMember>
+    </equipos>
+    <equipos>
+        <idTeam>5</idTeam>
+        <nameTeam>teamMA</nameTeam>
+        <nameMember>Naila</nameMember>
     </equipos>
 </Equipo>
