@@ -2,7 +2,6 @@ package com.ClasesConJAXB;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.xml.bind.annotation.*;
 
@@ -10,27 +9,19 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Socio {
 	@XmlAttribute(name = "idPartner")
-	private int idPartner;
+	private String idPartner;
 	@XmlElement(name = "namePartner")
 	private String namePartner;
 	@XmlElement(name = "lastNamePartner")
 	private String lastNamePartner;
 	@XmlElement(name = "socios")
 	private List<Socio> socios;
-	
-	@XmlTransient
-	private static final AtomicInteger idPartnerCount = new AtomicInteger(1);
-	@XmlTransient
-	private String prevNamePartner;
-	@XmlTransient
-	private String prevLastNamePartner;
+
 	// Constructors
-	
-	
-	
-	public Socio(String namePartner, String lastNamePartner) {
+
+	public Socio(String idPartner, String namePartner, String lastNamePartner) {
 		super();
-		this.idPartner = idPartnerCount.getAndIncrement();
+		this.idPartner = idPartner;
 		this.namePartner = namePartner;
 		this.lastNamePartner = lastNamePartner;
 
@@ -38,19 +29,20 @@ public class Socio {
 
 	@Override
 	public String toString() {
-		return namePartner + " " + lastNamePartner;
+		return "Socio idPartner:" + idPartner + ", namePartner:" + namePartner + ", lastNamePartner:" + lastNamePartner
+				+ "";
 	}
 
 	public Socio() {
 	}
 
 	// Getter and Setter
-	public int getIdPartner() {
+	public String getIdPartner() {
 		return idPartner;
 	}
 
-	public void setIdPartner(int idPartner) {
-		this.idPartner = idPartnerCount.getAndDecrement();
+	public void setIdPartner(String idPartner) {
+		this.idPartner = idPartner;
 	}
 
 	public String getNamePartner() {
@@ -58,12 +50,10 @@ public class Socio {
 	}
 
 	public void setNamePartner(String namePartner) {
-		prevNamePartner = this.namePartner;
 		this.namePartner = namePartner;
 	}
 
 	public void setLastNamePartner(String lastNamePartner) {
-		prevLastNamePartner = this.lastNamePartner;
 		this.lastNamePartner = lastNamePartner;
 	}
 

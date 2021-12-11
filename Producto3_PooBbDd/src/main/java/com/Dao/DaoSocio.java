@@ -4,20 +4,21 @@ import java.util.ArrayList;
 
 import javax.xml.bind.JAXBException;
 
-import com.ClasesConJAXB.Equipo;
 import com.ClasesConJAXB.Socio;
 
 public interface DaoSocio {
 
-	void insertar(Socio socio) throws JAXBException;
+	public void guardarSocios(ArrayList<Socio> socios) throws JAXBException;
 
-	void modificar(Socio socio) throws JAXBException;
-	
-	void eliminar(Socio socio) throws JAXBException;
+	public Socio listarSocios() throws JAXBException;
+	void Insertar(Socio socio) throws JAXBException, Exception;
 
-	void obtenerTodosSocio();
+	void modificar(Object a);
 
-	
+	void insertar(Object a) throws Exception, Throwable;
+
+	Object obtener(Object idPartner) throws Exception;
+
 	
 
 }

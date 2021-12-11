@@ -5,7 +5,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import com.ClasesConJAXB.Equipo;
 import com.ClasesConJAXB.Socio;
 
 import java.io.File;
@@ -21,35 +20,61 @@ public class XmlDaoSocio implements DaoSocio {
 		this.nombreFichero = "socios.xml";
 	}
 
-	@Override
-	public void insertar(Socio socio) throws JAXBException {
+	public void guardarSocios(Socio socios) throws JAXBException {
 		Marshaller marshaller = jaxbContext.createMarshaller();
 		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		marshaller.marshal(socio, new File(nombreFichero));
-		System.out.println("\n\n\n" + "----Generando el archivo XML----\n");
-		System.out.println("RESULTADO:");
+		marshaller.marshal(socios, new File(nombreFichero));
+		System.out.println();
 		System.out.println("Se ha escrito el fichero " + nombreFichero + " con el siguiente contenido:");
-		System.out.println("\n");
-		marshaller.marshal(socio, System.out);
-
+		System.out.println();
+		marshaller.marshal(socios, System.out);
 	}
-	
+
 	@Override
-	public void modificar(Socio socio) throws JAXBException {
+	public Socio listarSocios() throws JAXBException {
+		Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+		Socio socios = (Socio) unmarshaller.unmarshal(new File(nombreFichero));
+
+		System.out.println();
+		System.out.println("Estos son los socios contenidos en el fichero " + nombreFichero);
+
+		for (Socio socio : socios.getSocios()) {
+			System.out.println("---");
+			System.out.println("Identificador del Socio: " + socio.getIdPartner() + "\t");
+			System.out.println("Nombre del Socio: " + socio.getNamePartner() + "\t");
+			System.out.println("Apellido del Socio: " + socio.getLastNamePartner() + "\t");
+		}
+		return null;
+	}
+
+	@Override
+	public void guardarSocios(ArrayList<Socio> socios) throws JAXBException {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	@Override
-	public void eliminar(Socio socio) throws JAXBException {
+	public void Insertar(Socio socio) throws JAXBException {
 		// TODO Auto-generated method stub
 		
 	}
 
-
 	@Override
-	public void obtenerTodosSocio() {
+	public void modificar(Object a) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void insertar(Object a) throws Exception, Throwable {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object obtener(Object idPartner) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
