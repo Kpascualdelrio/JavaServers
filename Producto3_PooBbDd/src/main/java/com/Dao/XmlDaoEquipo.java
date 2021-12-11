@@ -19,39 +19,31 @@ public class XmlDaoEquipo implements DaoEquipo {
 		this.nombreFichero = "equipos.xml";
 	}
 
-	public void insertar(Equipo equipo) throws JAXBException {
+	@Override
+	public void guardarEquipos(Equipo equipo) throws JAXBException {
 		Marshaller marshaller = jaxbContext.createMarshaller();
 		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 		marshaller.marshal(equipo, new File(nombreFichero));
-		System.out.println("\n" + "----Generando el archivo XML----\n");
-		System.out.println("\n" + "------Archivo XML creado--------\n");
-		
-		/* (OPCION) --> Para comprobar que se crea se muestra el contenido*/
-		//System.out.println("RESULTADO:");
-		//System.out.println("Se ha escrito el fichero " + nombreFichero + " con el siguiente contenido:");
-		//System.out.println("\n");
-		//marshaller.marshal(equipo, System.out);
-	}
-
-	
-	/*Funciones que no utilizamos en XML ya que solo Generamos el Documento*/
-	@Override
-	public void modificar(Equipo equipo) throws JAXBException {
-		// TODO Auto-generated method stub
-
+		System.out.println();
+		System.out.println("Se ha escrito el fichero " + nombreFichero + " con el siguiente contenido:");
+		System.out.println();
+		marshaller.marshal(equipo, System.out);
 	}
 
 	@Override
-	public void eliminar(Equipo equipo) throws JAXBException {
-		// TODO Auto-generated method stub
-		
-	}
+	public Equipo listarEquipos() throws JAXBException {
+		Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+		Equipo equipos = (Equipo) unmarshaller.unmarshal(new File(nombreFichero));
 
+		System.out.println();
+		System.out.println("Estos son los Equipos contenidos en el fichero " + nombreFichero);
 
-	@Override
-	public void obtenerTodosEquipo() {
-		// TODO Auto-generated method stub
-		
+		for (Equipo equipo : equipos.getEquipos()) {
+			System.out.println("---");
+			System.out.println("Identificador del equipo: " + equipo.getIdTeam() + "\t");
+			System.out.println("Nombre del equipo: " + equipo.getTeamName() + "\t");
+		}
+		return null;
 	}
 
 }

@@ -2,7 +2,6 @@ package com.ClasesConJAXB;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.xml.bind.annotation.*;
 
@@ -11,11 +10,11 @@ import javax.xml.bind.annotation.*;
 
 public class Proyecto {
 	@XmlAttribute(name = "idProject")
-	private int idProject;
+	private String idProject;
 	@XmlElement(name = "socio")
-	private String socio;
+	private Socio socio;
 	@XmlElement(name = "equipo")
-	private String equipo;
+	private Equipo equipo;
 	@XmlElement(name = "startDate")
 	private String startDate;
 	@XmlElement(name = "endDate")
@@ -32,15 +31,6 @@ public class Proyecto {
 	private String localPartner;
 	@XmlElement(name = "proyectos")
 	private List<Proyecto> proyectos;
-	
-	@XmlTransient
-	private static final AtomicInteger idProjectCount = new AtomicInteger(1);
-	//@XmlTransient
-	//private String prevNameTeam;
-	//@XmlTransient
-	////private String prevNameMember;
-	// Constructors
-	
 
 	// Constructors
 
@@ -48,12 +38,12 @@ public class Proyecto {
 
 	}
 
-	public Proyecto( Socio socio, Equipo equipo, String startDate, String endDate, String funder,
+	public Proyecto(String idProject, Socio socio, Equipo equipo, String startDate, String endDate, String funder,
 			String financingProvided, String projectCode, String actionTaken, String localPartner) {
 
-		this.idProject = idProjectCount.getAndIncrement();
-		this.socio = socio.toString();
-		this.equipo = equipo.toString();
+		this.idProject = idProject;
+		this.socio = socio;
+		this.equipo = equipo;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.funder = funder;
@@ -64,28 +54,28 @@ public class Proyecto {
 	}
 
 	// Getters and Setters
-	public int getIdProject() {
+	public String getIdProject() {
 		return idProject;
 	}
 
-	public void setIdProject(int idProject) {
-		this.idProject = idProjectCount.getAndIncrement();
+	public void setIdProject(String idProject) {
+		this.idProject = idProject;
 	}
 
-	public String getSocio() {
+	public Socio getSocio() {
 		return socio;
 	}
 
 	public void setSocio(Socio socio) {
-		this.socio = socio.toString();
+		this.socio = socio;
 	}
 
-	public String getEquipo() {
+	public Equipo getEquipo() {
 		return equipo;
 	}
 
 	public void setEquipo(Equipo equipo) {
-		this.equipo = equipo.toString();
+		this.equipo = equipo;
 	}
 
 	public String getStartDate() {
@@ -153,7 +143,7 @@ public class Proyecto {
 
 	@Override
 	public String toString() {
-		return "Proyecto idProject:" + idProject + ", socio:" + socio + ", equipo:" + equipo
+		return "Proyecto idProject:" + idProject + ", socio:" + socio.getIdPartner() + ", equipo:" + equipo
 				+ ", startDate:" + startDate + ", endDate:" + endDate + ", funder:" + funder + ", financingProvided:"
 				+ financingProvided + ", projectCode:" + projectCode + ", actionTaken:" + actionTaken
 				+ ", localPartner:" + localPartner + "";
