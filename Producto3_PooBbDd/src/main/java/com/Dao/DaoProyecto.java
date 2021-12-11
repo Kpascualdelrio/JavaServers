@@ -2,12 +2,16 @@ package com.Dao;
 
 import javax.xml.bind.JAXBException;
 
+import com.ClasesConJAXB.Equipo;
 import com.ClasesConJAXB.Proyecto;
 
 public interface DaoProyecto {
 
-	public void guardarProyecto(Proyecto proyecto) throws JAXBException;
+	void insertar(Proyecto proyecto) throws JAXBException;	
+	
+	void modificar(Proyecto proyecto) throws JAXBException;
 
-	public Proyecto listarProyectos() throws JAXBException;
+	void eliminar(Proyecto proyecto) throws JAXBException;
 
+	void obtenerTodosProyecto();
 }

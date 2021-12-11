@@ -21,36 +21,38 @@ public class XmlDaoProyecto implements DaoProyecto{
 	}
 
 	@Override
-	public void guardarProyecto(Proyecto proyecto) throws JAXBException {
+	public void insertar(Proyecto proyecto) throws JAXBException {
 		Marshaller marshaller = jaxbContext.createMarshaller();
 		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 		marshaller.marshal(proyecto, new File(nombreFichero));
-		System.out.println();
+		System.out.println("\n\n\n" + "----Generando el archivo XML----\n");
+		System.out.println("RESULTADO:");
 		System.out.println("Se ha escrito el fichero " + nombreFichero + " con el siguiente contenido:");
-		System.out.println();
+		System.out.println("\n");
 		marshaller.marshal(proyecto, System.out);
 		
 	}
 
+	/*Funciones que no utilizamos en XML ya que solo Generamos el Documento*/
 	@Override
-	public Proyecto listarProyectos() throws JAXBException {
-		Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-		Proyecto proyectos = (Proyecto) unmarshaller.unmarshal( new File(nombreFichero) );
-	    
-		System.out.println();
-		System.out.println("Estos son los proyectos contenidos en el fichero " + nombreFichero);
-		
-	
-	
-	for(Proyecto proyecto : proyectos.getProyectos())
-    {
-    	System.out.println("---");
-        System.out.println("Identificador del proyecto: " + proyecto.getIdProject() + "\t");
-        System.out.println("Fecha de inicio del proyecto: "  + proyecto.getStartDate()+ "\t");
-        System.out.println("Fecha de finalización del proyecto: " + proyecto.getEndDate() + "\t");
-    }
-	return null;
+	public void modificar(Proyecto proyecto) throws JAXBException {
+		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public void eliminar(Proyecto proyecto) throws JAXBException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
+	@Override
+	public void obtenerTodosProyecto() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

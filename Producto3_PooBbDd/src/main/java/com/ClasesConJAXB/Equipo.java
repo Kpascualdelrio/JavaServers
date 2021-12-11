@@ -2,6 +2,7 @@ package com.ClasesConJAXB;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.xml.bind.annotation.*;
 
@@ -13,56 +14,68 @@ public class Equipo {
 	 * He cambiado el tipo de dato de idTeam de int a String me daba error al
 	 * implementar dao y con String no
 	 */
-	@XmlAttribute(name = "idTeam")
-	private String idTeam;
-	@XmlElement(name = "ong")
-	private ONG ong;
+	
+	@XmlElement(name = "idTeam")
+	private int idTeam;
 	@XmlElement(name = "nameTeam")
 	private String nameTeam;
 	@XmlElement(name = "nameMember")
 	private String nameMember;
-	@XmlElement(name = "equipos")
+	
 	private List<Equipo> equipos;
-
+	
+	@XmlTransient
+	private static final AtomicInteger idTeamCount = new AtomicInteger(1);
+	@XmlTransient
+	private String prevNameTeam;
+	@XmlTransient
+	private String prevNameMember;
 	// Constructors
 	public Equipo() {
 	}
 
-	public Equipo(String idTeam, ONG ong, String teamName, String memberName) {
-		super();
-		this.idTeam = idTeam;
-		this.ong = ong;
+	public String getPrevNameTeam() {
+		return prevNameTeam;
+	}
+
+	public void setPrevNameTeam(String prevNameTeam) {
+		this.prevNameTeam = prevNameTeam;
+	}
+
+	public String getPrevNameMember() {
+		return prevNameMember;
+	}
+
+	public void setPrevNameMember(String prevNameMember) {
+		this.prevNameMember = prevNameMember;
+	}
+
+	public Equipo( String teamName, String memberName) {
+		idTeam = idTeamCount.getAndIncrement();
 		this.nameTeam = teamName;
 		this.nameMember = memberName;
 	}
 
 	@Override
 	public String toString() {
-		return "Equipo idTeam: " + idTeam + "";
+		return nameTeam;
 	}
 
 	// Getter and Setter
-	public String getIdTeam() {
+	public int getIdTeam() {
 		return idTeam;
 	}
 
-	public void setIdTeam(String idTeam) {
-		this.idTeam = idTeam;
-	}
-
-	public ONG getOng() {
-		return ong;
-	}
-
-	public void setOng(ONG ong) {
-		this.ong = ong;
+	public void setIdTeam(int idTeam) {
+		this.idTeam = idTeamCount.getAndDecrement();
 	}
 
 	public String getTeamName() {
 		return nameTeam;
 	}
 
-	public void setTeamName(String teamName) {
+	public void setTeamName(String teamName) { 
+		prevNameTeam = this.nameTeam;
 		this.nameTeam = teamName;
 	}
 
@@ -71,6 +84,7 @@ public class Equipo {
 	}
 
 	public void setMemberName(String memberName) {
+		prevNameMember = this.nameMember;
 		this.nameMember = memberName;
 	}
 
